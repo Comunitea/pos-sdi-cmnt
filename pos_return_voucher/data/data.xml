@@ -30,9 +30,11 @@
                 <field name="voucher_journal" eval="True"/>
             </record>
 
+            <!-- Si tienes multiples compañias falla en el constraint de point_of _sale:
+            def _check_company_payment(self, cr, uid, ids, context=None): -->
             <!-- #################pos config ################ -->
-            <record id="point_of_sale.pos_config_main" model="pos.config">
+            <!-- <record id="point_of_sale.pos_config_main" model="pos.config">
                 <field name="journal_ids" eval="[(4, ref('pos_return_voucher.account_voucher_journal'))]" />
-            </record>
+            </record> -->
         </data>
 </openerp>

@@ -32,7 +32,8 @@
     "category": "Point Of Sale",
     "depends": [
         'point_of_sale',
-        'pos_sub_menu_widget'
+        'pos_sub_menu_widget',
+        'pos_return_voucher',
     ],
     'data': [
         "views/pos_return_products.xml",
