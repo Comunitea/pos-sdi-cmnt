@@ -201,6 +201,7 @@ openerp.pos_return_voucher = function (instance, local) {
 
 
     module.PaymentScreenWidget = module.PaymentScreenWidget.extend({
+        
         init: function (parent, options) {
             var self = this;
             this._super(parent, options);
@@ -223,7 +224,15 @@ openerp.pos_return_voucher = function (instance, local) {
 
 
         },
+        locked_order: function (value) {
+            var currentOrder = this.pos.get('selectedOrder');
+            $(currentOrder).data('locked', value);
+        },
 
+        is_locked_order: function () {
+            var currentOrder = this.pos.get('selectedOrder');
+            return $(currentOrder).data('locked');
+        },
         show: function () {
             this._super();
             var self = this;

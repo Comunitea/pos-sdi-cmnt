@@ -17,7 +17,6 @@
         'point_of_sale',
         'pos_sub_menu_widget',
         'pos_simplified_invoice',
-        'pos_change_order_name',
     ],
     'data': [
         'security/ir.model.access.csv',
