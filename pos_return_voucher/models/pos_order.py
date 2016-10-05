@@ -57,8 +57,15 @@ class PosOrder(models.Model):
             # new routine for update cash journal when return mode is defined
             if 'return_mode' in order.keys():
                 if order['return_mode'] == 'voucher':
-                    voucher_journal = self.env.ref(
-                        'pos_return_voucher.account_voucher_journal')
+                    # No lo cojo del data sino que los cojo de cada compañía
+                    # voucher_journal = self.env.ref(
+                    #     'pos_return_voucher.account_voucher_journal')
+                    company_id = self.env['res.users'].browse(self._uid).company_id.id
+                    domain = [
+                        ('company_id', '=', company_id),
+                        ('code', '=', 'VALES'),
+                    ]
+                    voucher_journal = self.env['account.journal'].search(domain, limit=1)
                     if voucher_journal:
                         cash_journal = voucher_journal.id
 

@@ -20,7 +20,7 @@
     ],
     'data': [
         'security/ir.model.access.csv',
-        'data/data.xml',
+        # 'data/data.xml',
         'views/pos_return_voucher.xml',
         'views/pos_voucher_view.xml',
         'views/account_journal_view.xml',
@@ -29,5 +29,6 @@
     "qweb": [
         'static/src/xml/pos_return_voucher.xml',
     ],
+    "post_init_hook": "create_journals_company",
     "installable": True,
 }
