@@ -25,6 +25,11 @@ openerp.pos_return_voucher = function (instance, local) {
 
             }).then(function (configs) {
                 self.config = configs[0];
+                self.config.use_proxy = self.config.iface_payment_terminal || 
+                                        self.config.iface_electronic_scale ||
+                                        self.config.iface_print_via_proxy  ||
+                                        self.config.iface_scan_via_proxy   ||
+                                        self.config.iface_cashdrawer;
                 self.barcode_reader.add_barcode_patterns({
                     'voucher': self.config.barcode_voucher
                 });
