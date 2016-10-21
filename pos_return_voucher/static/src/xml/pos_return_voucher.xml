@@ -109,7 +109,7 @@
                     <t t-if='receipt.vale_amount'>
                         <line><left>Importe</left><right><value><t t-esc='receipt.vale_amount' /></value></right></line>
                     </t>
-                    <t t-if='receipt.vale.code'>
+                    <t t-if='receipt.vale_code'>
                         <line><left>Código vale</left><right><value><t t-esc='receipt.vale_code' /></value></right></line>
                     </t>
                     <br />
