@@ -124,7 +124,7 @@ openerp.pos_return_voucher = function (instance, local) {
         },
         export_for_printing: function(){
             var currentOrder = this.pos.get('selectedOrder');
-            var json = _super.prototype.export_for_printing.apply(this,arguments);
+            var json = OrderSuper.prototype.export_for_printing.apply(this,arguments);
             
             var voucher = this.get_used_voucher()
             json.vale = false
