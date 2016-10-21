@@ -122,6 +122,19 @@ openerp.pos_return_voucher = function (instance, local) {
             return res;
 
         },
+        export_for_printing: function(){
+            var currentOrder = this.pos.get('selectedOrder');
+            var json = _super.prototype.export_for_printing.apply(this,arguments);
+            
+            var voucher = this.get_used_voucher()
+            json.vale = false
+            if (voucher && voucher.amount > 0) {
+                json.vale = true
+                json.vale_amount = voucher.amount
+                json.vale_code = voucher.name
+            }
+            return json;
+        },
     });
 
 
